@@ -1,13 +1,15 @@
 #!/bin/sh
 
 cat <<EOF | xmenu | sh &
-Applications
-	IMG:./icons/web.png	Web Browser	firefox
-	IMG:./icons/gimp.png	Image editor	gimp
-Terminal (xterm)	xterm
-Terminal (urxvt)	urxvt
-Terminal (st)		st
+Alacritty		alacritty
+Chrome		google-chrome-stable
+Onboard		onboard
+Ranger		$TERMINAL -d 80 25 --class ranger,Ranger -e $FILE 
+Nautilus		nautilus
 
-Shutdown		poweroff
-Reboot			reboot
+Suspend			playerctl pause && systemctl suspend && slock
+Lock	  		playerctl pause && slock
+Exit	  		killall Xorg
+Shutdown		systemctl poweroff
+Reboot			systemctl reboot
 EOF
